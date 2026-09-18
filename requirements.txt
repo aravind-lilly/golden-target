@@ -1,0 +1,14 @@
+# All packages must come from Lilly's JFrog Artifactory — see README.md for details.
+#
+# solve.py is intentionally pure Python standard library — no third-party
+# packages are required. It only imports: csv, json, os, re, ssl, sys, time,
+# urllib.error, urllib.parse, urllib.request, collections, concurrent.futures.
+# This was a deliberate choice (not an unedited starter default): it avoids
+# any risk of a package/version being unavailable in JFrog or conflicting
+# with another dependency (see README.md, "Python packages — JFrog only"),
+# and keeps the tool's own runtime environment identical to the grading
+# environment regardless of what else JFrog does or doesn't have pinned.
+#
+# If a future change adds a real third-party dependency, pin it here with an
+# exact version, e.g.:
+#   requests==2.32.3

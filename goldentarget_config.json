@@ -1,0 +1,5 @@
+{
+  "runtime_version": "3.11",
+  "run_command": "python3 solve.py",
+  "requirements_file": "requirements.txt"
+}
