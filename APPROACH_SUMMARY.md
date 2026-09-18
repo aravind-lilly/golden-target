@@ -59,6 +59,20 @@ and PDE10A's real ChEMBL ID is `CHEMBL4409`. (6) **ambiguous_literature_mention*
 (KLK3 and NPEPPS); I disambiguated using only `context_sentence` vocabulary
 against each candidate's retrieved name and function text, never `pmid`.
 
+These map onto the brief's own three severity archetypes: wrong_mapping *is*
+"a wrong mapping" (high severity — the master would point at the wrong real
+protein); stale_accession/stale_symbol/wrong_crossreference are all
+"stale-but-valid labels" (medium/low — the identifier or link is genuinely
+real, just superseded); and demerged_accession is a **duplicate-identity**
+risk specifically — an unresolved merge/demerge accession left as its own
+identifier would make golden_records count the same real target (e.g.
+IFNA13, reachable via `D4Q9M8`, `P01562`, or `A0A087WWS6`) as three separate
+records. I treat this as a correctness issue in `unique_target_count` itself
+(golden records are keyed on the merge-chain-resolved primary accession, so
+all three collapse to one row) and also surface it as a `findings` entry per
+defective row, so it scores on both reconciliation accuracy and defect
+surfacing.
+
 ## 4. One thing I investigated and did NOT flag
 
 `source_bindingdb.csv`'s `species` column uses four different literal
