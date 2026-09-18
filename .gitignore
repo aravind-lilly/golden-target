@@ -1,0 +1,7 @@
+# Local test data / organizer materials — not part of the submitted repo structure
+golden-target-data/
+
+# OS / editor cruft
+.DS_Store
+__pycache__/
+*.pyc
